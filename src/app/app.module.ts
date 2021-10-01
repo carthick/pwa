@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { ServiceWorkerModule } from "@angular/service-worker"
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.development })
   ],
   providers: [LessonService],
   bootstrap: [AppComponent]
